@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 
 function Regis() {
     const [formData, setFormData] = useState({
-        name: "",
         email: "",
         password: "",
     });
@@ -34,7 +33,7 @@ function Regis() {
             });
 
 
-            navigate('/profil');
+            navigate("/");
         } catch (error) {
             console.error('Error register:', error);
 
@@ -52,21 +51,10 @@ function Regis() {
     return (
         <div className="flex item-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-100 h-120 max-w-sm mt-30">
-                <h1 className="text-2xl               font-bold text-center mb-6">Test</h1>
+                <h1 className="text-2xl font-bold text-center mb-6">Test</h1>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Nama </label>
-                        <input
-                            className="shadow border rounded w-full py-2 px-3 text-gray-700"
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Masukkan teks"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
+
+                    <div className="mb-4 mt-15">
                         <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
                         <input
                             className="shadow border rounded w-full py-2 px-3 text-gray-700"
@@ -78,7 +66,7 @@ function Regis() {
                             required
                         />
                     </div>
-                    <div className="mb-6">
+                    <div className="mb-6 mt-10">
                         <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
                         <input
                             className="shadow border rounded w-full py-2 px-3 text-gray-700"
@@ -90,7 +78,7 @@ function Regis() {
                             required
                         />
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between mt-20">
                         <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded"
                             type="submit"
