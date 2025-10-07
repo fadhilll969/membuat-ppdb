@@ -21,7 +21,7 @@ function Regis() {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:5001/users', formData);
+            const response = await axios.post("http://localhost:5001/menu", formData);
             console.log('Register success:', response.data);
 
 
@@ -33,7 +33,7 @@ function Regis() {
             });
 
 
-            navigate("/");
+            navigate("/Y");
         } catch (error) {
             console.error('Error register:', error);
 
@@ -50,11 +50,10 @@ function Regis() {
 
     return (
         <div className="flex item-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-md w-100 h-120 max-w-sm mt-30">
+            <div className="bg-white p-8 rounded-lg shadow-md w-100 h-110 max-w-sm mt-30">
                 <h1 className="text-2xl font-bold text-center mb-6">Test</h1>
                 <form onSubmit={handleSubmit}>
-
-                    <div className="mb-4 mt-15">
+                    <div className="mb-4 mt-10">
                         <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
                         <input
                             className="shadow border rounded w-full py-2 px-3 text-gray-700"
@@ -66,7 +65,7 @@ function Regis() {
                             required
                         />
                     </div>
-                    <div className="mb-6 mt-10">
+                    <div className="mb-6 mt-10 ">
                         <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
                         <input
                             className="shadow border rounded w-full py-2 px-3 text-gray-700"
@@ -89,7 +88,7 @@ function Regis() {
                         <button
                             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-7 rounded"
                             type="button"
-                            onClick={() => navigate("/d")}>
+                            onClick={() => navigate("/h")}>
                             Kembali
                         </button>
                     </div>

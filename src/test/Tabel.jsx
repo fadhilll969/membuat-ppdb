@@ -1,0 +1,118 @@
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
+
+function Tabelytta() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get("http://localhost:5001/slek");
+                setData(res.data);
+            } catch (err) {
+                console.error("Gagal ambil data:", err);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Apakah kamu yakin?",
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, hapus!",
+            cancelButtonText: "Batal😹😹"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axios.delete(`http://localhost:5001/slek/${id}`);
+                    setData(data.filter(item => item.id !== id));
+
+                    Swal.fire({
+                        title: "Terhapus!",
+                        text: "Data berhasil dihapus.",
+                        icon: "success"
+                    });
+                } catch (error) {
+                    console.error("Gagal menghapus data:", error);
+                    Swal.fire({
+                        title: "Gagal!",
+                        text: "Terjadi kesalahan saat menghapus data.",
+                        icon: "error"
+                    });
+                }
+            }
+        });
+    };
+    return (
+        <div className="p-10 mt-20">
+            <div className="flex justify-end">
+                <Link
+                    to="/G"
+                    className="inline-block bg-blue-500 text-white px-4 py-2 mb-5 rounded hover:bg-blue-600"
+                >
+                    Tambah Data
+                </Link>
+            </div>
+            <h2 className="text-xl font-bold mb-5">Data Siswa</h2>
+            <table className="border-collapse border border-gray-400 w-full">
+                <thead>
+                    <tr className="bg-gray-200">
+                        <th className="border border-gray-400 px-4 py-2">no</th>
+                        <th className="border border-gray-400 px-4 py-2">NAMA</th>
+                        <th className="border border-gray-400 px-4 py-2">ASAL SEKOLAH</th>
+                        <th className="border border-gray-400 px-4 py-2">NIK</th>
+                        <th className="border border-gray-400 px-4 py-2">JURUSAN</th>
+                        <th className="border border-gray-400 px-4 py-2">NILAI</th>
+                        <th className="border border-gray-400 px-4 py-2">yatta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((item, index) => (
+                        <tr key={item.id} className="text-center">
+                            <td className="border border-gray-400 px-4 py-2">{index + 1}</td>
+                            <td className="border border-gray-400 px-4 py-2">{item.nama}</td>
+                            <td className="border border-gray-400 px-4 py-2">{item.sekolah}</td>
+                            <td className="border border-gray-400 px-4 py-2">{item.nik}</td>
+                            <td className="border border-gray-400 px-4 py-2">{item.jurusan}</td>
+                            <td className="border border-gray-400 px-4 py-2">{item.nilai}</td>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <button
+                                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
+                                    onClick={() => handleDelete(item.id)}
+                                >
+                                    Hapus
+                                </button>
+                                <Link to="/G">
+                                    <button
+                                        className="bg-blue-500 ml-10 text-white px-3 py-1 rounded hover:bg-blue-600 cursor-pointer"
+                                    >
+                                        Edit Data
+                                    </button>
+                                </Link>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            <div className="flex justify-end mt-10">
+                <Link
+                    to="/Y"
+                    className="inline-block bg-blue-500 text-white px-4 py-2 mb-5 rounded hover:bg-blue-600"
+                >
+                    backkte
+                </Link>
+            </div>
+        </div>
+    );
+}
+
+export default Tabelytta;
