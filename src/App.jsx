@@ -6,6 +6,7 @@ import Tabelytta from "./test/Tabel"
 import EditYatta from "./test/Editdata"
 import Dasbor from "./test/Dasbor"
 import TabelRegister from "./test/TabelRgs"
+import Forril from "./test/Forril"
  
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/V" element={<Tabelytta />} />
       <Route path="/G" element={<EditYatta />} />
       <Route path="/Y" element={<Dasbor />} />
+      <Route path="/M" element={<Forril />} />
       <Route path="/K" element={<TabelRegister />} />
     </Routes>
   )

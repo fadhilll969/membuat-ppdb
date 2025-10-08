@@ -18,7 +18,7 @@ function Regis() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        setLoading(true);      
 
         try {
             const response = await axios.post("http://localhost:5001/menu", formData);

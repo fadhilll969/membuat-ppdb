@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
+import Dasbor from "./Dasbor";
+
 
 function Tabelytta() {
     const [data, setData] = useState([]);
@@ -53,65 +55,67 @@ function Tabelytta() {
         });
     };
     return (
-        <div className="p-10 mt-20">
-            <div className="flex justify-end">
-                <Link
-                    to="/G"
-                    className="inline-block bg-blue-500 text-white px-4 py-2 mb-5 rounded hover:bg-blue-600"
-                >
-                    Tambah Data
-                </Link>
-            </div>
-            <h2 className="text-xl font-bold mb-5">Data Siswa</h2>
-            <table className="border-collapse border border-gray-400 w-full">
-                <thead>
-                    <tr className="bg-gray-200">
-                        <th className="border border-gray-400 px-4 py-2">no</th>
-                        <th className="border border-gray-400 px-4 py-2">NAMA</th>
-                        <th className="border border-gray-400 px-4 py-2">ASAL SEKOLAH</th>
-                        <th className="border border-gray-400 px-4 py-2">NIK</th>
-                        <th className="border border-gray-400 px-4 py-2">JURUSAN</th>
-                        <th className="border border-gray-400 px-4 py-2">NILAI</th>
-                        <th className="border border-gray-400 px-4 py-2">yatta</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((item, index) => (
-                        <tr key={item.id} className="text-center">
-                            <td className="border border-gray-400 px-4 py-2">{index + 1}</td>
-                            <td className="border border-gray-400 px-4 py-2">{item.nama}</td>
-                            <td className="border border-gray-400 px-4 py-2">{item.sekolah}</td>
-                            <td className="border border-gray-400 px-4 py-2">{item.nik}</td>
-                            <td className="border border-gray-400 px-4 py-2">{item.jurusan}</td>
-                            <td className="border border-gray-400 px-4 py-2">{item.nilai}</td>
-                            <td className="border border-gray-400 px-4 py-2">
-                                <button
-                                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
-                                    onClick={() => handleDelete(item.id)}
-                                >
-                                    Hapus
-                                </button>
-                                <Link to="/G">
-                                    <button
-                                        className="bg-blue-500 ml-10 text-white px-3 py-1 rounded hover:bg-blue-600 cursor-pointer"
-                                    >
-                                        Edit Data
-                                    </button>
-                                </Link>
-                            </td>
+        <>
+            <Dasbor />
+            <div className="p-10 ml-70 mt-20">
+                <div className="flex justify-end">
+
+                </div>
+                <h2 className="text-3xl p-5 font-bold text-center mb-5">Data Siswa</h2>
+                <table className="border-collapse border border-gray-400 w-full">
+                    <thead>
+                        <tr className="bg-gray-200">
+                            <th className="border border-gray-400 px-4 py-2">no</th>
+                            <th className="border border-gray-400 px-4 py-2">NAMA</th>
+                            <th className="border border-gray-400 px-4 py-2">ASAL SEKOLAH</th>
+                            <th className="border border-gray-400 px-4 py-2">NIK</th>
+                            <th className="border border-gray-400 px-4 py-2">JURUSAN</th>
+                            <th className="border border-gray-400 px-4 py-2">NILAI</th>
+                            <th className="border border-gray-400 px-4 py-2">UBAH</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div className="flex justify-end mt-10">
-                <Link
-                    to="/Y"
-                    className="inline-block bg-blue-500 text-white px-4 py-2 mb-5 rounded hover:bg-blue-600"
-                >
-                    backkte
-                </Link>
+                    </thead>
+                    <tbody>
+                        {data.map((item, index) => (
+                            <tr key={item.id} className="text-center">
+                                <td className="border border-gray-400 px-4 py-2">{index + 1}</td>
+                                <td className="border border-gray-400 px-4 py-2">{item.nama}</td>
+                                <td className="border border-gray-400 px-4 py-2">{item.sekolah}</td>
+                                <td className="border border-gray-400 px-4 py-2">{item.nik}</td>
+                                <td className="border border-gray-400 px-4 py-2">{item.jurusan}</td>
+                                <td className="border border-gray-400 px-4 py-2">{item.nilai}</td>
+                                <td className="border border-gray-400 px-4 py-2">
+                                    <button
+                                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
+                                        onClick={() => handleDelete(item.id)}
+                                    >
+                                        Hapus
+                                    </button>
+                                    <button
+                                        >
+                                        edit
+                                    </button>
+
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <div className="flex justify-between mt-10">
+                    <Link
+                        to="/Y"
+                        className="inline-block bg-blue-500 text-white px-4 py-2 mb-5 rounded hover:bg-blue-600"
+                    >
+                        kembali
+                    </Link>
+                    <Link
+                        to="/G"
+                        className="inline-block bg-blue-500 text-white px-4 py-2 mb-5 rounded hover:bg-blue-600"
+                    >
+                        Tambah Data
+                    </Link>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

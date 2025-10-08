@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
+import Dasbor from "./Dasbor";
 
 function TabelRegister() {
     const [data, setData] = useState([]);
@@ -53,8 +54,10 @@ function TabelRegister() {
         });
     };
     return (
-        <div className="p-10 mt-20">
-            <h2 className="text-xl text-center font-bold mb-5">ff</h2>
+        <>
+        <Dasbor/>
+        <div className="p-10 ml-70 mt-20">
+            <h2 className="text-3xl p-5 text-center font-bold mb-5">Test</h2>
             <table className="border-collapse border border-gray-400 w-full">
                 <thead>
                     <tr className="bg-sky-500">
@@ -91,6 +94,7 @@ function TabelRegister() {
                 </Link>
             </div>
         </div>
+                                    </>
     );
 }
 

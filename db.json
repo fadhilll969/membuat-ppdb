@@ -1,19 +1,24 @@
 {
   "slek": [
     {
-      "id": "ec01",
+      "id": "dcca",
       "nama": "Rinee",
-      "sekolah": " Ae",
+      "sekolah": " smp",
       "nik": "969",
       "jurusan": "jung",
-      "nilai": "969"
+      "nilai": "80,90"
     }
   ],
   "menu": [
     {
-      "id": "b147",
-      "email": "urine@gmail.com",
-      "password": "RINEE"
+      "id": "16ab",
+      "email": "Rineeloyy@gmail.com",
+      "password": "Rine969-lala"
+    },
+    {
+      "id": "0929",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "etg"
     }
   ]
 }

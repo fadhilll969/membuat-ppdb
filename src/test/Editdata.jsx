@@ -63,7 +63,7 @@ function EditYatta() {
     return (
 
         <div className="flex justify-center items-center min-h-screen ">
-            
+
             <form
                 onSubmit={handleSubmit}
                 className="bg-white  p-12 rounded-md shadow-md w-96"
@@ -122,7 +122,7 @@ function EditYatta() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         required
                     />
-                    <label htmlFor="nilai" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label htmlFor="nilai" className="block text-gray-700 mt-5 text-sm font-bold mb-2">
                         nilai
                     </label>
                     <input
